@@ -4,8 +4,10 @@ import datetime as dt
 import pandas as pd
 import os
 
+# This is code for sending email to list of people from csv, using smtplib
+
 # Email section
-my_email = 'gtuvshin369@gmail.com'
+my_email = 'username@email.com'
 password = 'vjvljjlgyfkibsba'
 
 

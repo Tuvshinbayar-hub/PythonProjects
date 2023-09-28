@@ -8,7 +8,7 @@ from pytz import timezone
 MY_LAT = 47.921230
 MY_LONG = 106.918556
 
-MY_EMAIL = 'gtuvshin369@gmail.com'
+MY_EMAIL = 'username@gmail.com'
 MY_PASSWORD = 'vjvljjlgyfkibsba'
 
 

@@ -1,8 +1,9 @@
 import requests
 from datetime import datetime
 from dateutil.relativedelta import relativedelta
+import os
 
-API_KEY_FLIGHT = 'xqFzke6eqVyu21FUBbsrCXXe0MmfenGI'
+API_KEY_FLIGHT = os.environ.get('api_key_flight')
 END_POINT_SEARCH = 'https://api.tequila.kiwi.com/v2/search'
 END_POINT_LOCATION = 'https://api.tequila.kiwi.com/locations/query'
 

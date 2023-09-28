@@ -35,7 +35,7 @@ class InstaFollower:
         xpath = "/html/body/div[2]/div/div/div[2]/div/div/div/div[1]/div[1]/div[1]/div/div/div/div/div[2]/div[2]/span/div/a"
         self.webdriver_wait_send_key(ec.presence_of_element_located, By.XPATH, xpath, Keys.ENTER)
         self.webdriver_wait_send_key(ec.presence_of_element_located, By.XPATH,
-                                     "//input[@aria-label='Search input']", send_key='Naruto')
+                                     "//input[@aria-label='Search input']", send_key=similar_account)
         xpath_search_results = '/html/body/div[2]/div/div/div[2]/div/div/div/div[1]/div[1]/div[1]/div/div/div[2]/div/div/div[2]/div/div/div[2]/div/a[1]'
         self.webdriver_wait_click(ec.presence_of_element_located, By.XPATH, xpath_search_results)
         xpath_followers = '/html/body/div[2]/div/div/div[2]/div/div/div/div[1]/div[1]/div[2]/div[2]/section/main/div/header/section/ul/li[2]/a'
@@ -53,7 +53,7 @@ class InstaFollower:
         try:
             list_buttons = wait_buttons.until(ec.presence_of_all_elements_located((By.CSS_SELECTOR, '._acan._acap._acas._aj1-')))
             for button in list_buttons:
-                time.sleep(0.5)
+                time.sleep(0.75)
                 try:
                     button.click()
                 except exceptions.ElementClickInterceptedException:

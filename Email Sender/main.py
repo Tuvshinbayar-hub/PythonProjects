@@ -3,7 +3,7 @@ import datetime as dt
 import random
 
 # Email section
-my_email = 'gtuvshin369@gmail.com'
+my_email = 'username@email.com'
 password = 'vjvljjlgyfkibsba'
 
 
@@ -13,7 +13,7 @@ def send_email(message):
         connection.login(user=my_email, password=password)
         connection.sendmail(
             from_addr=my_email,
-            to_addrs="gtuvshin369@gmail.com",
+            to_addrs="username@email.com",
             msg=f'Subject:Motivational quote for you\n\n {message}'
         )
 

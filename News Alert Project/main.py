@@ -6,8 +6,8 @@ from twilio.http.http_client import TwilioHttpClient
 
 STOCK = 'TSLA'
 COMPANY_NAME = 'Tesla Inc'
-API_KEY_ALPHAVANTAGE = 'NINHBCLNZIKWKS15'
-API_KEY_NEWSAPI = 'eef53b5bc0b544fcb67eb1b5e823acad'
+API_KEY_ALPHAVANTAGE = os.environ.get('api_key_aphavantage')
+API_KEY_NEWSAPI = os.environ.get('api_key_newsapi')
 
 # STEP 1: Use https://www.alphavantage.co
 # When STOCK price increase/decreases by 5% between yesterday and the day before yesterday then print("Get News").
@@ -63,13 +63,13 @@ def send_sms(sms_content: str, price_diff_percent: str):
     # proxy_client = TwilioHttpClient()
     # proxy_client.session.proxies = {'https': os.environ['https_proxy']}
 
-    account_sid = 'AC6b9cf55cb2c5532da92d9641f0666044'
-    auth_token = '653c5e602e30c2b0243fd7a195f4eafe'
+    account_sid = os.environ.get('account_sid')
+    auth_token = os.environ.get('auth_token')
     client = Client(account_sid, auth_token)
     # client = Client(account_sid, auth_token, http_client=proxy_client)
 
     message = client.messages.create(
-        to='+97699369096',
+        to='receiving number',
         body=f'EURUSD: {price_diff_percent}\nBrief: {sms_content}',
         from_='+12058518156'
     )
