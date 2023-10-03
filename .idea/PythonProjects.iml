@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="PYTHON_MODULE" version="4">
+  <component name="NewModuleRootManager">
+    <content url="file://$MODULE_DIR$">
+      <excludeFolder url="file://$MODULE_DIR$/Blog - Upgraded" />
+      <excludeFolder url="file://$MODULE_DIR$/Coffee &amp; Wifi Project" />
+      <excludeFolder url="file://$MODULE_DIR$/Databases with SQLite and SQLAlchemy" />
+      <excludeFolder url="file://$MODULE_DIR$/Flask - WTF" />
+      <excludeFolder url="file://$MODULE_DIR$/Flask Authentication" />
+      <excludeFolder url="file://$MODULE_DIR$/Flask rendering HTML" />
+      <excludeFolder url="file://$MODULE_DIR$/Forex Profit Calculator" />
+      <excludeFolder url="file://$MODULE_DIR$/Hello Flask" />
+      <excludeFolder url="file://$MODULE_DIR$/Higher Lower" />
+      <excludeFolder url="file://$MODULE_DIR$/Jinja" />
+      <excludeFolder url="file://$MODULE_DIR$/RESTful Routing API" />
+      <excludeFolder url="file://$MODULE_DIR$/Top 10 Movies Website" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+  <component name="PyDocumentationSettings">
+    <option name="format" value="PLAIN" />
+    <option name="myDocStringFormat" value="Plain" />
+  </component>
+  <component name="TestRunnerService">
+    <option name="PROJECT_TEST_RUNNER" value="py.test" />
+  </component>
+</module>
