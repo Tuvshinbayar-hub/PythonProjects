@@ -14,6 +14,15 @@
     <button type="submit" class="btn btn-primary btn-block btn-large">
       Let me in.
     </button>
+    <div class="container">
+      {% with messages = get_flashed_messages() %}
+        {% if messages %}
+          {% for message in messages %}
+            <h5><strong style="color:red;">{{ message }}</strong></h5>
+          {% endfor %}
+        {% endif %}
+      {% endwith %}
+    </div>
   </form>
 </div>
 

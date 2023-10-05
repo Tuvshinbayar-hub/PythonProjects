@@ -12,6 +12,7 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///users.db'
 db = SQLAlchemy()
 db.init_app(app)
 login_manager.init_app(app)
+login_manager.session_protection = 'strong'
 
 
 def hash_password(password):
@@ -43,7 +44,7 @@ def load_user(user_id):
 
 @app.route('/')
 def home():
-    return render_template("index.html")
+    return render_template("index.html", logged_in=current_user.is_authenticated)
 
 
 @app.route('/register', methods=['GET', 'POST'])
@@ -53,6 +54,10 @@ def register():
             name = request.form.get('name')
             email = request.form.get('email')
             password = request.form.get('password')
+
+            if db.session.scalar(db.select(User).filter_by(email=email)):
+                flash(f'Sorry, that email has already been used', 'success')
+                return redirect(url_for('register'))
 
             new_user = User()
             new_user.name = name
@@ -73,21 +78,22 @@ def login():
     if request.method == 'POST':
         try:
             email = request.form.get('email')
-            print('email is ', str(email))
             user = User.query.filter_by(email=email).first()
-            print('user is ', str(user))
+            if not user:
+                flash('Invalid username or password!')
+                return redirect(url_for('login'))
             if check_password_hash(user.password, request.form.get('password')):
                 login_user(user)
-                return render_template("secrets.html", name=user.name)
+                return redirect(url_for('secrets'))
         except Exception as e:
-            flash(str(e), 'danger')
+            flash('Invalid username or password!')
     return render_template("login.html")
 
 
 @app.route('/secrets')
 @login_required
 def secrets():
-    return render_template("secrets.html", name=current_user.name)
+    return render_template("secrets.html", name=current_user.name, logged_in=current_user.is_authenticated)
 
 
 @app.route('/logout')
