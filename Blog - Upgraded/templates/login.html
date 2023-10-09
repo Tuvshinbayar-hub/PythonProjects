@@ -1,0 +1,21 @@
+{% from 'bootstrap5/form.html' import render_form %}
+
+{% extends 'base.html' %}
+
+{% block img_url %}
+    {{ url_for('static', filename='assets/img/post-bg.jpg') }}
+{% endblock %}
+
+{% block header_title %}
+    Login
+{% endblock %}
+
+{% block header_subtitle %}
+    Welcome Back!
+{% endblock %}
+
+{% block content %}
+    <div class="container w-50">
+        {{ render_form(form) }}
+    </div>
+{% endblock %}
