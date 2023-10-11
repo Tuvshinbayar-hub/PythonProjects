@@ -13,13 +13,12 @@ from flask_login import LoginManager, UserMixin, login_user, current_user, logou
 from functools import wraps
 from datetime import datetime
 from flask_gravatar import Gravatar
-import gunicorn
 import smtplib
 import os
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///posts.db'
-app.secret_key = 'isSecretKey'
+app.secret_key = os.environ.get('secretkey')
 ckeditor = CKEditor(app)
 
 login_manager = LoginManager()
@@ -132,7 +131,7 @@ def send_email(message):
         connection.login(user=username, password=password)
         connection.sendmail(
             from_addr=username,
-            to_addrs='username@email.com',
+            to_addrs=username,
             msg=f'Subject:New message\n\n {message}'
         )
 
@@ -303,4 +302,4 @@ def logout():
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()
