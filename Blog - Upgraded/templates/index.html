@@ -6,34 +6,33 @@
 <!--     Page Header-->
 <!--    {% include 'header.html' %}-->
 <!--     Main Content-->
-    <div class="container px-4 px-lg-5">
-        <div class="row gx-4 gx-lg-5 justify-content-center">
-            <div class="col-md-10 col-lg-8 col-xl-7">
-                 Post preview
-                {% for data in data_json %}
-                <div class="post-preview">
-                    <a href="post/{{ data['id'] }}">
-                        <h2 class="post-title">{{ data['title'] }}</h2>
-                        <h3 class="post-subtitle">{{ data['subtitle'] }}</h3>
-                    </a>
-                    <p class="post-meta">
-                        Posted by
-                        <a href="#!">{{ data['author'].name }}</a>
-                        on {{ data['date'] }}
-                        {% if current_user.is_authenticated and current_user.id == 1 %}
-                        <a href="{{ url_for('delete_post', post_id=data['id']) }}">✘</a>
-                        {% endif %}
-                    </p>
-                </div>
-                <!-- Divider-->
-                <hr class="my-4" />
-                {% endfor %}
-                {% if current_user.is_authenticated and current_user.id == 1 %}
-                <div class="d-flex justify-content-end mb-4"><a class="btn btn-primary text-uppercase" href="{{ url_for('new_post') }}">Create Post →</a></div>
-                {% endif %}
+<div class="container px-4 px-lg-5">
+    <div class="row gx-4 gx-lg-5 justify-content-center">
+        <div class="col-md-10 col-lg-8 col-xl-7">
+             Post preview
+            {% for data in data_json %}
+            <div class="post-preview">
+                <a href="post/{{ data['id'] }}">
+                    <h2 class="post-title">{{ data['title'] }}</h2>
+                    <h3 class="post-subtitle">{{ data['subtitle'] }}</h3>
+                </a>
+                <p class="post-meta">
+                    Posted by
+                    <a href="#!">{{ data['author'].name }}</a>
+                    on {{ data['date'] }}
+                    {% if current_user.is_authenticated and current_user.id == 1 %}
+                    <a href="{{ url_for('delete_post', post_id=data['id']) }}">✘</a>
+                    {% endif %}
+                </p>
             </div>
+            <hr class="my-4" />
+            {% endfor %}
+            {% if current_user.is_authenticated and current_user.id == 1 %}
+            <div class="d-flex justify-content-end mb-4"><a class="btn btn-primary text-uppercase" href="{{ url_for('new_post') }}">Create Post →</a></div>
+            {% endif %}
         </div>
     </div>
-    {% include 'footer.html' %}
+</div>
+{% include 'footer.html' %}
 {% endblock %}
 

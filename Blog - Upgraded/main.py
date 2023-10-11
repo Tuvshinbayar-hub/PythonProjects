@@ -12,6 +12,8 @@ from wtforms import EmailField, StringField, PasswordField, validators, URLField
 from flask_login import LoginManager, UserMixin, login_user, current_user, logout_user, login_required
 from functools import wraps
 from datetime import datetime
+from flask_gravatar import Gravatar
+import gunicorn
 import smtplib
 import os
 
@@ -19,8 +21,17 @@ app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///posts.db'
 app.secret_key = 'isSecretKey'
 ckeditor = CKEditor(app)
+
 login_manager = LoginManager()
 
+gravatar = Gravatar(app,
+                    size=40,
+                    rating='g',
+                    default='retro',
+                    force_default=False,
+                    force_lower=False,
+                    use_ssl=False,
+                    base_url=None)
 bootstrap = Bootstrap5(app)
 login_manager.init_app(app)
 
