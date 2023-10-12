@@ -63,7 +63,7 @@ class BlogPost(db.Model):
     title: Mapped[str] = mapped_column(String(250), unique=True, nullable=False)
     date: Mapped[str] = mapped_column(String(250), nullable=False)
     body: Mapped[str] = mapped_column(String, nullable=False)
-    img_url: Mapped[str] = mapped_column(String(250), nullable=False)
+    img_url: Mapped[str] = mapped_column(String(500), nullable=False)
     subtitle: Mapped[str] = mapped_column(String(250), nullable=False)
 
     # Parent links
@@ -302,4 +302,4 @@ def logout():
 
 
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)
