@@ -1,0 +1,4 @@
+npm create-vite@latest
+cd name-of-folder
+npm i
+npm run dev

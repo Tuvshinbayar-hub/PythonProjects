@@ -1,0 +1,2 @@
+Use HTTP request verbs : GET, POST, PUT, PATCH, DELETE
+Use Specific Pattern of Routes/Endpoint URLS

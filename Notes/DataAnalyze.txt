@@ -1,0 +1,31 @@
+How many row does our dataframe have?
+How many columns does it have?
+What are the labels for the columns? Do the columns have names?
+Are there any missing values in our dataframe? Does our dataframe contain any bad data?
+
+functions:
+	1. .head() - shows top 5 rows
+	2. .isna() - to check if table has NaN value
+	3. .dropna() - creates copy of table without NaN values
+	4. column.max() - gets max value
+	5. column.idxmax() - gets id of the max value
+	6. clean_df["Major"].loc[43] - gets the value of 43rd row of column 'Major'
+	7. clean_df.insert(1, "Spread", spread_col) here spread_col = clean_df['mid-career 90th percentile salary'] - clean_diff['mid-career 10th percentile salary']
+	8. low_risk = clean_df.sort_values("Spread")
+	9. pd.options.display.float_format = '{:,.2f}'.format
+	10. clean_df.groupby('Group').mean() - returns sum of value
+	11. df(foo) - returns type of foo
+ 	12. pd.to_datetime(foo) returns converted string foo to datetime
+	13. reshaped_df.fillna(0, inplace=True)
+	14. isna().values.any() - to look for any NaN value
+	15. .pivot() to rotate table
+attributes:
+	1. .shape - to see the number of rows and columns 
+	2. .columns - retrieve column names
+	3. ['columnName'] - retrieve column
+
+Matplotlib - for data visualization
+	1. import matplotlab as plt
+	2. .rolling(window=6).mean() to smoothen graph
+	
+	

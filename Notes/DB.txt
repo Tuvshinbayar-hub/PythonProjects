@@ -1,0 +1,141 @@
+DBMS - Database Management Systems - Software application for CRUD info
+1. Relational Databases (SQL) - orginize data into one or more tables
+2. Non-Relational Databaes(noSQL) - organize data is anything but a traditional table
+
+RDBMS - mySQL, Oracle, postgreSQL, mariaDB etc
+SQL - Structured Query Language
+surrogate key - type of primary key, has no mapping of real world
+natural key - id of ciziten could be used, has mapping of real world
+foreign key - primary key of different table
+composite key - 2 or more combinations for uniquely identifying a row
+
+Basic datatypes
+1. INT
+2. DECIMAL(M,N)	- M total number of digits, N digits number after comma
+3. VARCHAR(100) - String o text of length 100
+4. BLOB		Binary Larg Object, Stores Large Data IMG etc
+5. DATE		- YYYY-MM-DD
+6. TIMESTAMP	- YYYY-MM-DD HH:MM:SS
+
+COMMANDS
+-----
+
+CREATING/ALTERING TABLE
+---
+CREATE TABLE name_of_table (
+	student_id INT PRIMARY KEY AUTO_INCREMENT,
+	name VARCHAR(30) UNIQUE NOT NULL,
+	major VARCHAR(30) DEFAULT 'undecided'
+);
+
+DESCRIBE name_of_table - shows the table like using pandas
+
+DROP TABLE name_of_table - deletes the table
+
+ALTER TABLE name_of_table ADD gpa DECIMAL(3,2); - adds row to name_of_table, with name of gpa and type of DECIMAL
+
+AlTER TABLE name_of_table DROP COLUMN gpa
+
+CREATE TABLE branch (
+  branch_id INT PRIMARY KEY,
+  branch_name VARCHAR(40),
+  mgr_id INT,
+  mgr_start_date DATE,
+  FOREIGN KEY(mgr_id) REFERENCES employee(emp_id) ON DELETE SET NULL	- is foreign key
+);
+
+INSERTING DATA
+---
+INSERT INTO name_of_table VALUES(1, 'Jack', 'Biology')
+
+INSERT INTO name_of_table(student_id, name) VALUES(2, 'KATE') - By specifying column headers within parenthesis we can omit other values
+
+RETRIEVE DATA
+---
+SELECT * FROM student
+
+SELECT student.name as n, student.major as m		- AS changes the title of the column
+FROM name_of_table
+ORDER BY student.major, student.student_id DESC		- DESC means descending, ASC Ascending
+LIMIT 2;						- LIMIT means limiting number of rows being retrieved
+
+SELECT *
+FROM name_of_table
+WHERE major IN('Sociology', 'Chemistry')
+
+UPDATE/DELETE DATA
+---
+UPDATE name_of_table
+SET major = 'Bio'
+WHERE major = 'Biology'
+
+DELETE FROM name_of_table 
+WHERE name = 'Claire'
+
+
+FUNCTIONS
+-----
+COUNT()				- Returns count of non-null elements
+AVG() 				- Find average
+SUM()				- Returns sum of 
+LEN()				- Returns of length of string
+GROUP BY			- aggregation
+
+
+WILDCARDS
+-----
+LIKE "%LLC"			- Will query all matches which has ending with "LLC"
+LIKE "%LLC%"			- Will query all matches which has "LLC" somewhere
+LIKE "____-10%"			- '_' stands for a single character. '%' stands for any number of characters
+
+UNION				- Basically combines results of SELECT
+-----
+
+JOIN				
+SELECT employee.emp_id, employee.first_name, branch.branch_name
+FROM employee
+JOIN branch				- Joins tables by their same column Inner join
+on employee.emp_id = branch.mgr_id;
+
+LEFT JOIN				- All rows from 'FROM table' will be included
+RIGHT JOIN				- All rows from right table 'JOIN branch' will be included
+-----
+ON DELETE SET NULL			- 
+ON DELETE CASCADE 			- deletes entire row. Used when deleting primary key
+
+TRIGGERS				- CLC should be used, cuz delimiter could be changed
+-----
+DELIMITER $$
+CREATE
+	TRIGGER my_trigger BEFORE INSERT
+	ON employee
+	FOR EACH ROW BEGIN
+		INSERT INTO trigger_test VALUES('added new employee');
+	END$$
+DELIMITER ;
+
+DELIMITER $$
+CREATE
+	TRIGGER my_trigger1 BEFORE INSERT
+	ON employee
+	FOR EACH ROW BEGIN
+		INSERT INTO trigger_test VALUES(NEW.first_name);
+	END$$
+DELIMITER ;
+
+ERDiagram
+-----
+Entity - An object we want to model & store information
+Weak Entity - An entity that cannot be uniquely identified by its attributes alone
+Multiple Entities -
+Attributes - Specific pieces of infomation about an entity
+Primary key - Uniquely identifying
+Composotie attribute - An attribute that  can be broken up in to sub-attributes
+Multi-valued Attribute - An attribute that can have more than one value
+Derived attributes - an attribute that can be derived from the other attributes
+Relationships - defines a relationship between two entities
+Relationship attribute - An attribute about the relationship
+Relationship cardinality - 1:1 , 1:N, N:M
+
+
+	

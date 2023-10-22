@@ -1,0 +1,29 @@
+1. Color Theory
+	1. Red - Love, Energy, Intensity
+	2. Yellow - Joy, Intellect, Attention
+	3. Green - Freshness, Safety, Growth
+	4. Blue - Stability, Trust, Serenity
+	5. Purple - Royalty, Wealth, Fimininity
+2. Complementary colors - not be used on text and its background
+	1. colorhunt.com - use to get color palatte
+3. Typography
+	1. Serif - older, authority
+	2. Humanist San Serif - best of human readibility
+	3. Use 2 fonds at max - Using different weights 
+4. UI
+	1. From Big to Small, from Bold to Normal
+	2. Chop big text to small
+	3. Alignment points should be reduced to minimum possible number
+	4. White Spaces around the products make things look expensive
+	5. Audience
+5. UX
+ 	1. Simplicity
+	2. Consistency
+	3. People read in "F" pattern
+	4. Responsiveness
+	5. Get feedback
+
+Extra:
+	1. Canva.com for sketchup of the website
+
+REST - Representational State Transfer
